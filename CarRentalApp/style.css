@@ -1,0 +1,115 @@
+
+body{
+	background:#DEF2F1;
+}
+
+.jumbotron{
+	background-color: #3AAFA9;
+
+}
+
+.jumbotron h1{
+	color: #FEFFFF;
+
+}
+
+.parent-div{
+	background-image: url(images/jag4.jpg);
+	background-size: cover;
+	background-position: center bottom;
+}
+
+.childdiv{
+	background-color: black;
+}
+
+#goright{
+	float: right;
+	background: black;
+}
+#goleft{
+	float: left;
+	
+}
+.makeinline img{
+	float: left;
+  width: 205px;
+  height: 100px;
+  margin: 0px;
+
+}
+.makeinline h1{
+	position: relative;
+  top: 20px;
+  left: 10px;
+  font-style: italic;
+  color: white;
+  font-size: 30px;
+  
+}
+#locationsdiv{
+	background-color: #FEFFFF;
+	
+
+}
+
+#locationsdiv h3{
+	color: #17252A;
+}
+
+.locations{
+	margin-bottom: 15px;
+}
+
+
+
+
+.textbox{
+	padding: 5px;
+	background-color: rgba(23,37,42,0.5);
+	color: #FEFFFF;
+	margin: 7px;
+	border-radius: 5px;
+	border-color: #888;
+}
+h4{
+	color: #FEFFFF;
+	font-style: bold;
+	font-size: 20px;
+	margin-left: 7px;
+	padding-top: 25px;
+	
+
+
+}
+
+#findbutton{
+	background-color: #17252A;
+	color: #FEFFFF;
+	opacity: 0.95;
+
+}
+#findbutton:hover{
+	opacity: 1;
+}
+
+
+.overlay {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #17252A;
+  opacity: 0.8;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.locations:hover .overlay {
+  height: 28%;
+  opacity: 0.88;
+}
+
