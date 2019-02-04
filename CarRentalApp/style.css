@@ -111,7 +111,7 @@ h4{
 
 
 .locations:hover .overlay {
-  height: 28%;
+  height: 26%;
   opacity: 0.88;
 }
 
@@ -139,4 +139,10 @@ h4{
  	width: 105px;
  	height: 105px;
 
+ }
+
+ #h1{
+ 	color: #17252A; font-style: bold; font-weight: 800;
+ 	
+ 	
  }
