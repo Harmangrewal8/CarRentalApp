@@ -8,6 +8,7 @@ body{
 
 }
 
+
 .jumbotron h1{
 	color: #FEFFFF;
 
@@ -108,8 +109,34 @@ h4{
   transition: .5s ease;
 }
 
+
 .locations:hover .overlay {
   height: 28%;
   opacity: 0.88;
 }
 
+#verticalMenu a{
+	color: #FEFFFF;
+	margin-top: 0px;
+	padding: 7px;
+
+	display: block;
+	text-decoration: none;
+
+}
+
+#verticalMenu a:hover{
+	background-color: #2e3a3f;
+	
+
+}
+ 
+#icons{
+	width: 100px;
+	height: 100px;
+}
+ #icons:hover{
+ 	width: 105px;
+ 	height: 105px;
+
+ }

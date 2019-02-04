@@ -11,12 +11,7 @@
 
 
   <link rel="stylesheet" href="style.css">
-      <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
-
-<!--Font Awesome (added because you use icons in your prepend/append)-->
-<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-
+ 
 
  
 </head>
@@ -25,7 +20,7 @@
 
 <div class=" text-center" >
     <div style="background-color: #3AAFA9; padding-top: 40px; padding-bottom: 5px;">
-    <h1 style="color: #17252A; font-style: bold; font-weight: 700;">Easy Car Rentals</h1> 
+    <h1 style="color: #17252A; font-style: bold; font-weight: 800; ">Easy Car Rentals</h1> 
     <p style="color: #FEFFFF;">random text makes car renting easier</p>     
   </div> 
 
@@ -152,14 +147,14 @@
 <div class=" " style="margin: 0px; ">
   <div class="row " style="height: auto;">
     <div class="col-sm-4 text-center"  style="background-color: #2B7A78;padding: 40px; border-right: solid; border-color: #17252A; border-width: 0.5px; ">
-      <img class="" style="height: 100px; width: 100px;  " src="icons/handshake.png"><br>
+      <img id="icons"   src="icons/promotion.png"><br>
       <h4 style="color: #FEFFFF; font-size: 25px; margin: 10px; font-weight: 600;">Weekend Deals</h4>
       <p>Check out our Weekend Special Offers<br>
       You will love it
     </p>
     </div>
    <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px;  ">
-    <img class="" style="height: 100px; width: 100px;  " src="icons/rent.png"><br>
+    <img id="icons" src="icons/rent.png"><br>
       
       <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Easy Process</h4>
       <p style="color: #17252A;">Check out our Weekend Special Offers<br>
@@ -167,7 +162,7 @@
     </p>
     </div>
    <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px;  border-left: solid; border-color: #17252A; border-width: 0.5px; ">
-      <img style="height: 100px; width: 100px;" src="icons/car.png"><br>
+      <img id="icons" src="icons/car.png"><br>
       <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Fast Service</h4>
       <p style="color: #17252A;">Check out our Weekend Special Offers<br>
       You will love it
@@ -224,18 +219,84 @@
   
   
 </div>
+</div>
 <hr>
 
-<div class="container">
-   <div class="row">
-    <div class="col-sm-6 "></div>
-     <div class="col-sm-6 "></div>
-   </div>
+<div >
+  <div class="row d-flex justify-content-around" style="margin: 0; background-color: #17252A; padding: 20px;">
+    <div class=" " id="verticalMenu">
+      <h4 style="color:#3AAFA9;">Locations</h4>
+      
+        <a class="" href="#">All Locations</a>
+        <a class="" href="#">Surrey</a>
+        <a class="" href="#">Vancouver</a>
+        <a class="" href="#">Delta</a>
+        <a class="" href="#">Langley</a>
+      
+    </div>
+    <div class=" " id="verticalMenu">
+      <h4 style="color:#3AAFA9;">Vehicles</h4>
+      
+        <a class="" href="#">All Vehicles</a>
+        <a class="" href="#">Cars</a>
+        <a class="" href="#">Trucks</a>
+        <a class="" href="#">SUVs</a>
+        <a class="" href="#">Vans</a>
+      
+    </div>
 
-  <div>
+     <div class=" " id="verticalMenu" ">
+      <h4 style="color:#3AAFA9;">Car Companies</h4>
+      <div style="display: inline-block;">
+        <a class="" href="#">Ace </a>
+        <a class="" href="#">Advantage</a>
+        <a class="" href="#">Alamo</a>
+        <a class="" href="#">Budget</a>
+        <a class="" href="#">Dollar</a>
+       </div>
+       <div style="display: inline-block;">
+           <a class="" href="#">Enterprise </a>
+        <a class="" href="#">Hertz</a>
+        <a class="" href="#">Thrifty</a>
+       </div>
+
+    
+    </div>
+
+     <div class=" " id="verticalMenu">
+      <h4 style="color:#3AAFA9;">My Account</h4>
+      
+        <a class="" href="#">Bookings</a>
+        <a class="" href="#">SignIn</a>
+
+      
+      
+    </div>
+     <div class=" " id="verticalMenu">
+     
+
+      <h4 style="color:#3AAFA9;">Cantact Us</h4>
+      
+        
+        <a class="" href="#">Call: +1 604xxxxxxx</a>
+        <a class="" href="#">Email: abd@abcd.com</a>
+        <a class="" href="#">Send Feedback</a>
+      
+      
+    </div>
+   
+  </div>
+
+  <div class="d-flex justify-content-around" style="margin: 0; background-color: #17252A; padding: 10px;" >
+    <h4 style="color:#3AAFA9; font-size: 18px;">©EasyCarRentals.com</h4>
+    
     
   </div>
- </div>
+</div>
+
+
+
+
 
  
 <!-- jQuery library -->
@@ -247,25 +308,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
-<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
-</script>
 </body>
+
 </html>
