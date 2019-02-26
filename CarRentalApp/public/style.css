@@ -24,30 +24,7 @@ body{
 	background-color: black;
 }
 
-#goright{
-	float: right;
-	background: black;
-}
-#goleft{
-	float: left;
-	
-}
-.makeinline img{
-	float: left;
-  width: 205px;
-  height: 100px;
-  margin: 0px;
 
-}
-.makeinline h1{
-	position: relative;
-  top: 20px;
-  left: 10px;
-  font-style: italic;
-  color: white;
-  font-size: 30px;
-  
-}
 #locationsdiv{
 	background-color: #FEFFFF;
 	
@@ -144,5 +121,6 @@ h4{
  #h1{
  	color: #17252A; font-style: bold; font-weight: 800;
  	
- 	
  }
+
+ 
