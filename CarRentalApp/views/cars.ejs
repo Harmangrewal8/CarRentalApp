@@ -1,7 +1,33 @@
 <%- include("header") -%>
-<body> 
+<body>
+        
+    <div id="carsdiv" class= "container">
+        
+         <ul >
+             <% for(var i=0; i<data.length; i++) { %>
+                 <hr>
+              
+             <div style="display: inline-block; padding-right: 21px; border: black;">
+                 <img src="images/<%= data[i]['name'] %>.jpg" alt=".." height="250" width="400" >
+             </div>
+             <div style="color: #17252A; display: inline-block; padding-right: 21px; ">
+                <h2><%= data[i]['carType'] %></h2>
+                <h4 style="color: #17252A;">     
+                       <%= data[i]['brandName'] %> ( <%= data[i]['name'] %> )<br>
+                       
+                      Status: <%= data[i]['carStatus'] %> In <%= data[i]['location'] %>
+                      <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px; margin-top: 15px; margin-left: 5px;" name="">
+
+                </h4>
+             </div>
+             
+           
+             <% } %>
+         </ul>
+
+    </div> 
     <h1>
-        hello
+        
     </h1>
 </body>
 <%- include("footer")-%>

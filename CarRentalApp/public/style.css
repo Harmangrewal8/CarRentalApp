@@ -30,11 +30,16 @@ body{
 	
 
 }
+#carsdiv{
+	background-color: #FEFFFF;
+}
 
 #locationsdiv h3{
 	color: #17252A;
 }
-
+#carsdiv h3{
+	color: #17252A;
+}
 .locations{
 	margin-bottom: 15px;
 }
@@ -64,11 +69,14 @@ h4{
 #findbutton{
 	background-color: #17252A;
 	color: #FEFFFF;
-	opacity: 0.95;
+	opacity: 1;
+
 
 }
 #findbutton:hover{
-	opacity: 1;
+	background-color: #090E10;
+	color: #FEFFFF;
+	opacity: 0.95;
 }
 
 

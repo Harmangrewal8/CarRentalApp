@@ -14,3 +14,7 @@ if (mm < 10) {
 
 today = mm + '/' + dd + '/' + yyyy;
 $("#fromDate").attr("placeholder", today);
+
+
+
+

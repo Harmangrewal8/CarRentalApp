@@ -28,58 +28,39 @@ app.listen(3000, () => console.log('Express server is running at port no : 3000'
 
     app.use(express.static('public'))
 
-//Get all cars
-app.get('/cars', (req, res) => {
-   
-  
-    mysqlConnection.query('SELECT * FROM car', [req.params.id], (err, rows, fields) => {
-        if (!err)
-            res.send(rows);
-        else
-            console.log(err);
-    })
+      
+
+
+app.get('/result', (req, res) => {
 });
 
-app.post('/', (req, res) => {
+app.post('/result', (req, res) => {
     var userLocation = req.body.userlocation;
     var fromDate = (req.body.fromDate);
     var fromTime = req.body.fromTime;
     var toDate = req.body.toDate;
     var toTime = req.body.toTime;
-    var type = req.body.type;
+    var types = req.body.types;
+    console.log(fromDate+" "+fromTime);
+    console.log(toDate+" "+toTime);
 
-   
-    mysqlConnection.query('SELECT * FROM car WHERE carType = ? and location = ?', [type, userLocation], (err, rows, fields) => {
+    
+    mysqlConnection.query('SELECT * FROM car WHERE location = ?', [userLocation], (err, rows, fields) => {
         if (!err){
             if(res == null){
                 res.send("oops");
-
             }
             else {
-                res.send(rows);
-
+                 res.render("cars", { data: rows });
             }
         }
            
         else
             console.log(err);
     })
-
-  
-  
+    
 });
 
 
-
-//:id
-app.get('/cars/:id', (req, res) => {
-    mysqlConnection.query('SELECT * FROM car WHERE carId = ?', [req.params.id], (err, rows, fields) => {
-        if (!err)
-            res.send(rows);
-        else
-            console.log(err);
-    })
-
-});
 
 

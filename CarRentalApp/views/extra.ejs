@@ -1,0 +1,38 @@
+
+app.post('/result/filter', (req, res) => {
+    var userLocation = req.body.userlocation;
+    var types = req.body.types;
+    
+    mysqlConnection.query('SELECT * FROM car WHERE (carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? ) AND location = ?', [types[0],types[1],types[2],types[3],types[4],types[5],types[6],types[7],types[8],userLocation], (err, rows, fields) => {
+        if (!err){
+            if(res == null){
+                res.send("oops");
+            }
+            else {
+                 res.render("cars", { data: rows });
+            }
+        }
+           
+        else
+            console.log(err);
+    })
+    
+});
+
+<form action="/result/filter" method="POST">
+    <h4>Select Types</h4>
+             <div class="textbox" style="display: inline-block; padding-right: 21px;"> 
+                <input class="textbox"  type="checkbox" name="types[]" value="economy"><span style="color: #FEFFFF;">Economy</span>
+                <input class="textbox" type="checkbox" name="types[]" value="compact"><span style="color: #FEFFFF;">Compact</span>
+                <input class="textbox" type="checkbox" name="types[]" value="mid-size"><span style="color: #FEFFFF;">Mid-size</span>
+                <input class="textbox"  type="checkbox" name="types[]" value="standard"><span style="color: #FEFFFF;">Standard</span>
+                <input class="textbox" type="checkbox" name="types[]" value="full-size"><span style="color: #FEFFFF;">Full-size</span>
+                <input class="textbox" type="checkbox" name="types[]" value="premium"><span style="color: #FEFFFF;">Premium</span>
+                <input class="textbox"  type="checkbox" name="types[]" value="luxury"><span style="color: #FEFFFF;">Luxury</span>
+                <input class="textbox" type="checkbox" name="types[]" value="suv"><span style="color: #FEFFFF;">SUVs</span>
+                <input class="textbox" type="checkbox" name="types[]" value="van"><span style="color: #FEFFFF;">Vans</span>
+             </div>
+             <div class="col-12" style="padding: 0px; margin-top: 17px;">
+                    <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px;margin-left: 20px;" name="">
+             </div>
+</form>

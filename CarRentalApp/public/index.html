@@ -65,46 +65,24 @@
       </div>
       <div  class="parent-div d-flex align-items-center justify-content-center " style="width:100%; height:600px;" >
         
-        <form action="/" method="POST">
+        
          <div class="child-div " style=" overflow: auto; width:100%; height: auto;  background-image: linear-gradient(to bottom right, rgba(43,122,120,0.7) , rgba(0,0,0,0)); ">
-            <div class="container-fluid">
-               <div class="row" style="padding: 30px;">
-                  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
-                     <h4>Search for a car rental</h4>
-                     <input class="textbox" type="search" name="userlocation" placeholder="Type a location">
-                     <br>
-                     <h4>Select Types</h4>
-                     <div class="textbox" style="display: inline-block; padding-right: 10px;"> 
-                        <input class="textbox"  type="checkbox" name="type" value="car"><span style="color: #FEFFFF;">Cars</span>
-                        <input class="textbox" type="checkbox" name="type" value="truck"><span style="color: #FEFFFF;">Trucks</span>
-                        <input class="textbox" type="checkbox" name="type_suv"><span style="color: #FEFFFF;">SUVs</span>
-                     </div>
-                     <div class="textbox" style="display: inline-block; padding-right: 21px;">
-                        <input class="textbox" type="checkbox" name="type_van"><span style="color: #FEFFFF;">Vans</span>
-                        <input class="textbox" type="checkbox" name=""><span style="color: #FEFFFF;">Vans</span>
-                        <input class="textbox" type="checkbox" name=""><span style="color: #FEFFFF;">Vans</span>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12  ">
-                     <div class="row">
-                        <div class="col-12">
-                           <h4>Pickup Date & Time</h4>
-                           <input id="date" class="textbox" type="date" name="fromDate" placeholder="">
-                           <input class="textbox"type="time" name="fromTime">
-                        </div>
-                        <div class="col-12">
-                           <h4>Drop-off Date & Time</h4>
-                           <input class="textbox"type="date" name="toDate">
-                           <input class="textbox" type="time" name="toTime">
-                        </div>
-                        <div class="col-12" style="padding: 0px; margin-top: 17px;">
-                           <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px;margin-left: 20px;" name="">
-                        </div>
-                     </div>
-                  </div>
-               </div >
-            </div>
-         </div>
+               <form action="/result" method="POST"> 
+            <div class="" style =" padding: 25px; margin-left: 3% ;">
+               <div style="border-left: solid #17252A ; padding-left: 20px;">
+                     <input class="textbox" type="search" name="userlocation" style="width: 250px; height: 50px;" placeholder="Type a location">
+                     <h4>Pickup Date & Time</h4>
+                     <input id="date" class="textbox" type="date" name="fromDate" placeholder="">
+                     <input class="textbox"type="time" name="fromTime">
+                     <h4>Drop-off Date & Time</h4>
+                        <input class="textbox"type="date" name="toDate">
+                        <input class="textbox" type="time" name="toTime">
+                        
+                     <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px; margin-top: 15px; margin-left: 5px;" name="">
+                        
+               </div>
+                     
+           </div>
          </form>
       </div>
       </div>
