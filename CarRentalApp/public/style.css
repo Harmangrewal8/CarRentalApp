@@ -49,14 +49,21 @@ body{
 
 .textbox{
 	padding: 5px;
-	background-color: rgba(23,37,42,0.5);
-	color: #FEFFFF;
+	background-color: rgba(254,255,255,0);
+	color: #17252A;
 	margin: 7px;
 	border-radius: 5px;
-	border-color: #888;
+	border-color: #17252A;
+	font-size: 18px;
+	
+}
+
+.formdiv {
+	background-color: #FEFFFF;
+
 }
 h4{
-	color: #FEFFFF;
+	color: #17252A;
 	font-style: bold;
 	font-size: 20px;
 	margin-left: 7px;
@@ -67,15 +74,16 @@ h4{
 }
 
 #findbutton{
-	background-color: #17252A;
-	color: #FEFFFF;
+	background-color: #3AAFA9;
+	color: #17252A;
 	opacity: 1;
+	border: #17252A;
 
 
 }
 #findbutton:hover{
-	background-color: #090E10;
-	color: #FEFFFF;
+	background-color: #3AAFA9;
+	color: #17252A;
 	opacity: 0.95;
 }
 
@@ -131,4 +139,36 @@ h4{
  	
  }
 
+
+
+ .login-form {
+	width: 300px;
+	margin: 0 auto;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+.login-form h1 {
+	text-align: center;
+	color: #4d4d4d;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+}
+.login-form input[type="password"],
+.login-form input[type="text"],
+.login-form input[type="tel"] {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
+}
+.login-form input[type="submit"] {
+	width: 100%;
+	padding: 15px;
+	background-color: #535b63;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+}
  

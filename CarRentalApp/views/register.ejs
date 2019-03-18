@@ -1,0 +1,12 @@
+<%- include("header") -%>
+<div class="login-form">
+        
+        <form action="register" method="POST">
+            <input type="text" pattern=".{8}"name="reguser" placeholder="Username" required required title="atleast 8 characters">
+            <input type="password"pattern=".{8}" name="pass1" placeholder="Password" required required title="atleast 8 characters">
+            <input type="password"pattern=".{8}" name="pass2" placeholder="confirm password" required required title="atleast 8 characters">
+            <input type="tel" pattern=".{10}" name="phone" placeholder="" required title="atleast 10 characters">
+            <input type="submit" value="sign-up">
+        </form>
+    </div>
+<%- include("footer")-%>

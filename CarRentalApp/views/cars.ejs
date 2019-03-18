@@ -2,30 +2,57 @@
 <body>
         
     <div id="carsdiv" class= "container">
-        
-         <ul >
+        <div >
+            <form action="/type" method="POST">
+                
+                         <div class="textbox d-flex justify-content-around" style="display: inline-block; padding-right: 21px; color: #17252A"> 
+                            
+                            <input class="textbox"  type="checkbox" name="types[]" value="economy"><span style="">Economy</span>
+                            <input class="textbox" type="checkbox" name="types[]" value="compact"><span style="">Compact</span>
+                            <input class="textbox" type="checkbox" name="types[]" value="mid-size"><span style="">Mid-size</span>
+                            <input class="textbox"  type="checkbox" name="types[]" value="standard"><span style="">Standard</span>
+                            <input class="textbox" type="checkbox" name="types[]" value="full-size"><span style="">Full-size</span>
+                            <input class="textbox" type="checkbox" name="types[]" value="premium"><span style="">Premium</span>
+                            <input class="textbox"  type="checkbox" name="types[]" value="luxury"><span style="">Luxury</span>
+                            <input class="textbox" type="checkbox" name="types[]" value="suv"><span style="">SUVs</span>
+                            <input class="textbox" type="checkbox" name="types[]" value="van"><span >Vans</span>
+                         </div>
+                         <div class="d-flex justify-content-around" style="padding: 0px; margin-top: 17px;">
+                                <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 150px;margin-left: 20px;" name="" value="Select Type">
+                         </div>
+            </form>
+            
+        </div>
+<hr>
              <% for(var i=0; i<data.length; i++) { %>
-                 <hr>
-              
-             <div style="display: inline-block; padding-right: 21px; border: black;">
-                 <img src="images/<%= data[i]['name'] %>.jpg" alt=".." height="250" width="400" >
-             </div>
-             <div style="color: #17252A; display: inline-block; padding-right: 21px; ">
-                <h2><%= data[i]['carType'] %></h2>
-                <h4 style="color: #17252A;">     
-                       <%= data[i]['brandName'] %> ( <%= data[i]['name'] %> )<br>
-                       
-                      Status: <%= data[i]['carStatus'] %> In <%= data[i]['location'] %>
-                      <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px; margin-top: 15px; margin-left: 5px;" name="">
+              <div class="row">
+                    <div class="col-5" style="display: inline-block; padding: 75px; padding-bottom: 0px; border: black;">
+                            <img src="images/<%= data[i]['name'] %>.jpg" alt=".." height="250" width="400" >
+                        </div>
+                        <div  class="col-7" style="color: #17252A; display: inline-block; padding: 75px; padding-bottom: 0px; ">
+                           
+                           <h2><%= data[i]['brandName'] %> <%= data[i]['name'] %></h2>
+                           <h4 style="color: #17252A;">     
+                                Type:  <%= data[i]['carType'] %><br>
+                                  
+                                 Status: <%= data[i]['carStatus'] %> In <%= data[i]['location'] %><br>
+                                 hourly: <%= data[i]['hourly'] %><br>
+                                 daily: <%= data[i]['daily'] %><br>
+                                 weekly: <%= data[i]['weekly'] %><br>
+                                 <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Rent Car">
+           
+                           </h4>
+                        </div>
 
-                </h4>
-             </div>
-             
+
+              </div>   
+             <hr>
            
              <% } %>
-         </ul>
+         
 
     </div> 
+  
     <h1>
         
     </h1>

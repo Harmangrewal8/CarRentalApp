@@ -40,7 +40,7 @@
                      Vehicles
                      </a>
                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">All Vehicles</a>
+                        <a class="dropdown-item" href="/all">All Vehicles</a>
                         <a class="dropdown-item" href="#">Cars</a>
                         <a class="dropdown-item" href="#">Trucks</a>
                         <a class="dropdown-item" href="#">SUVs</a>
@@ -66,19 +66,19 @@
       <div  class="parent-div d-flex align-items-center justify-content-center " style="width:100%; height:600px;" >
         
         
-         <div class="child-div " style=" overflow: auto; width:100%; height: auto;  background-image: linear-gradient(to bottom right, rgba(43,122,120,0.7) , rgba(0,0,0,0)); ">
+         <div class="child-div " style=" overflow: auto; width:100%; height: auto;  background-image: linear-gradient(to bottom right, rgba(23,37,42,0.7) , rgba(0,0,0,0)); ">
                <form action="/result" method="POST"> 
-            <div class="" style =" padding: 25px; margin-left: 3% ;">
-               <div style="border-left: solid #17252A ; padding-left: 20px;">
-                     <input class="textbox" type="search" name="userlocation" style="width: 250px; height: 50px;" placeholder="Type a location">
+            <div class="formdiv" style =" padding: 25px; margin-left: 3% ; width: 365px;border-radius: 10px;">
+               <div style="border-left: solid #FEFFFF ; padding-left: 20px;">
+                     <input class="textbox" type="search" name="userlocation" style="width: 250px; height: 50px;" placeholder="Type a location" required>
                      <h4>Pickup Date & Time</h4>
-                     <input id="date" class="textbox" type="date" name="fromDate" placeholder="">
-                     <input class="textbox"type="time" name="fromTime">
+                     <input id="date" class="textbox" type="date" name="fromDate" placeholder="" required>
+                     <input class="textbox"type="time" name="fromTime" required>
                      <h4>Drop-off Date & Time</h4>
-                        <input class="textbox"type="date" name="toDate">
-                        <input class="textbox" type="time" name="toTime">
+                        <input class="textbox"type="date" name="toDate "required>
+                        <input class="textbox" type="time" name="toTime" required>
                         
-                     <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px; margin-top: 15px; margin-left: 5px;" name="">
+                     <input value="Search Cars" type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px;height: 40px;; margin-top: 15px; margin-left: 5px;" name="">
                         
                </div>
                      
@@ -88,10 +88,11 @@
       </div>
       <div class=" " style="margin: 0px; ">
       <div class="row " style="height: auto;">
-         <div class="col-sm-4 text-center"  style="background-color: #2B7A78;padding: 40px; border-right: solid; border-color: #17252A; border-width: 0.5px; ">
+         <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px; border-right: solid; border-color: #17252A; border-width: 0.5px; ">
+            
             <img id="icons"   src="icons/promotion.png"><br>
-            <h4 style="color: #FEFFFF; font-size: 25px; margin: 10px; font-weight: 600;">Weekend Deals</h4>
-            <p>Check out our Weekend Special Offers<br>
+            <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Weekend Deals</h4>
+            <p style="color: #17252A;">Check out our Weekend Special Offers<br>
                You will love it
             </p>
          </div>
