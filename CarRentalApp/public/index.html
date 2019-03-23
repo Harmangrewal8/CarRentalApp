@@ -10,7 +10,9 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
       <link rel="stylesheet" href="style.css">
    </head>
+   
    <body>
+         
       <div class=" text-center" >
          <div style="background-color: #3AAFA9; padding-top: 40px; padding-bottom: 5px;">
             <h1 id="h1" >Easy Car Rentals</h1>
@@ -68,17 +70,20 @@
         
          <div class="child-div " style=" overflow: auto; width:100%; height: auto;  background-image: linear-gradient(to bottom right, rgba(23,37,42,0.7) , rgba(0,0,0,0)); ">
                <form action="/result" method="POST"> 
-            <div class="formdiv" style =" padding: 25px; margin-left: 3% ; width: 365px;border-radius: 10px;">
+            <div class="formdiv" style =" padding: 25px; margin-left: 3% ; width: 380px;border-radius: 10px;">
                <div style="border-left: solid #FEFFFF ; padding-left: 20px;">
                      <input class="textbox" type="search" name="userlocation" style="width: 250px; height: 50px;" placeholder="Type a location" required>
                      <h4>Pickup Date & Time</h4>
-                     <input id="date" class="textbox" type="date" name="fromDate" placeholder="" required>
+                     <input id="date1" class="textbox" type="date" name="fromDate" placeholder="" required>
                      <input class="textbox"type="time" name="fromTime" required>
                      <h4>Drop-off Date & Time</h4>
-                        <input class="textbox"type="date" name="toDate "required>
+                     <input id="date2" class="textbox" type="date" name="toDate" placeholder="" required>
                         <input class="textbox" type="time" name="toTime" required>
-                        
-                     <input value="Search Cars" type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px;height: 40px;; margin-top: 15px; margin-left: 5px;" name="">
+                        <div class="alert alert-info alert-dismissible">
+                           <strong>Note: </strong> user must LOGIN first
+                         </div>  
+                         
+                     <input value="Search Cars" type="submit" id="findbutton" class="btn  btn-block " style=" width: 260px;height: 40px;; margin-top: 15px; margin-left: 5px;" name="">
                         
                </div>
                      
@@ -86,6 +91,8 @@
          </form>
       </div>
       </div>
+
+
       <div class=" " style="margin: 0px; ">
       <div class="row " style="height: auto;">
          <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px; border-right: solid; border-color: #17252A; border-width: 0.5px; ">
@@ -213,6 +220,10 @@
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
       <script src="js/index.js"></script>
+      <script >
+         
+
+      </script>
    </body>
 </html>
 

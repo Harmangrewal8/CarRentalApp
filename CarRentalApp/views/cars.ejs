@@ -1,6 +1,10 @@
 <%- include("header") -%>
+
 <body>
-        
+        <h1>
+            
+             <%= weeks%> , <%= dayrem%> , <%= hours%>
+        </h1>
     <div id="carsdiv" class= "container">
         <div >
             <form action="/type" method="POST">
@@ -36,10 +40,19 @@
                                 Type:  <%= data[i]['carType'] %><br>
                                   
                                  Status: <%= data[i]['carStatus'] %> In <%= data[i]['location'] %><br>
+                                
                                  hourly: <%= data[i]['hourly'] %><br>
                                  daily: <%= data[i]['daily'] %><br>
                                  weekly: <%= data[i]['weekly'] %><br>
-                                 <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Rent Car">
+                                 estimated cost: $ <%= (data[i]['weekly'])*weeks+ (data[i]['daily'])*dayrem+(data[i]['hourly'])*hours %>
+                                 estimated Insurance: $ <%= (data[i]['weeklyIn'])*weeks+ (data[i]['dailyIn'])*dayrem+(data[i]['hourlyIn'])*hours %>
+                                 <form name="form-form"  action="/reserve" method="post" id="submit_form">
+                                    <input type="hidden" id="value1" name="cost" value=<%= (data[i]['weekly'])*weeks+ (data[i]['daily'])*dayrem+(data[i]['hourly'])*hours %>>
+                                    <input type="hidden" id="value1" name="cost" value=<%= (data[i]['weeklyIn'])*weeks+ (data[i]['dailyIn'])*dayrem+(data[i]['hourlyIn'])*hours %>>
+                                    <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Reserve Car">
+
+                                </form>
+                                 <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="rent Car">
            
                            </h4>
                         </div>
