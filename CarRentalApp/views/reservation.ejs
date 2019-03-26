@@ -1,0 +1,73 @@
+<%- include("header") -%>
+<body>
+    <div id="carsdiv" class="container">
+         <% if(key == "success" ){%>
+            <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Reservation cancelled!!</strong>
+                  </div>
+            <% }else{%>
+                
+               <h1 class="text-center"> Car Reserved  </h1>
+
+            <%}%>
+       
+       <div class="row">
+            <div class="col-5" style="display: inline-block; padding: 75px; padding-bottom: 0px; border: black;">
+                    <img src="images/<%= name %>.jpg" alt=".." height="250" width="400" >
+                </div>
+                <div  class="col-7" style="color: #17252A; display: inline-block; padding: 75px; padding-bottom: 0px; ">
+                   
+                   <h2><%= brandName %> <%= name %></h2>
+                   <h4 style="color: #17252A;">     
+                        Type:  <%= carType %><br>   
+                     Status: <%= carStatus %> In <%= userLocation %><br>
+                        
+                         
+                    
+                         
+                   </h4>
+                   <h2> User: <%= user%></h2>
+                   <h2> Carid: <%= carId%></h2>
+                   <h2> conf NO.: <%= data[0]["LAST_INSERT_ID()"] %></h2>
+                   <form name="form-form"  action="/rentinfo" method="post" id="submit_form">
+                     <input type="hidden" id="value1" name="name" value=<%=name%>>
+                     <input type="hidden" id="value1" name="carType" value=<%=carType%>>
+                     <input type="hidden" id="value1" name="carStatus" value=<%=carStatus%>>
+                     <input type="hidden" id="value1" name="carStatus" value=<%=brandName%>>
+
+
+                     <input type="hidden" id="value1" name="cost" value=<%=cost%>>
+                     <input type="hidden" id="value1" name="insurance" value=<%=insurance%>>
+                     <input type="hidden" id="value1" name="carId" value=<%=carId%>>
+                     <input type="hidden" id="value1" name="resId" value=<%= data[0]["LAST_INSERT_ID()"] %>>
+                     <input type="hidden" id="value1" name="phone" value=<%=phone%>>
+
+                     <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="rent Car">
+
+                 </form>
+                 <form name="form-form"  action="/cancelled" method="post" id="submit_form">
+                  <input type="hidden" id="value1" name="name" value=<%=name%>>
+                  <input type="hidden" id="value1" name="carType" value=<%=carType%>>
+                  <input type="hidden" id="value1" name="carStatus" value=<%=carStatus%>>
+                  <input type="hidden" id="value1" name="carStatus" value=<%=brandName%>>
+
+
+                  <input type="hidden" id="value1" name="cost" value=<%=cost%>>
+                  <input type="hidden" id="value1" name="insurance" value=<%=insurance%>>
+                  <input type="hidden" id="value1" name="carId" value=<%=carId%>>
+                  <input type="hidden" id="value1" name="resId" value=<%= data[0]["LAST_INSERT_ID()"] %>>
+                  <input type="hidden" id="value1" name="phone" value=<%=phone%>>
+
+                  <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Cancel Reservation">
+
+              </form>
+                </div>
+
+
+      </div>   
+     <hr>
+      
+    </div>
+</body>
+<%- include("footer")-%>

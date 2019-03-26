@@ -1,0 +1,101 @@
+<%- include("header") -%>
+<body>
+    <div id="carsdiv" class="container">
+            <% if(key == "success" ){%>
+                <div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Congrates!!</strong> Your car is ready for Pick Up!!
+                      </div>
+                <% }else{%>
+                    
+                    <h1 class="text-center"> Please provide the following details  </h1>
+
+                <%}%>
+       <div class="d-flex justify-content-center">
+            <div class="formdiv " style ="border: solid #17252a ; padding: 25px;  width: 380px; border-radius: 10px;">
+                    <div style="border-left: solid #FEFFFF ; padding-left: 20px;">
+                            
+                         
+                                <form action="/rent" method="POST"> 
+                          
+                    
+                                    <div class="row">
+                                            <div class="col-xs-12" style="margin-left:0%">
+                                                <div class="form-group">
+                                                    <label>Card Number</label>
+                                                    <input type="tel" pattern=".{16}" class="form-control" name="cardNo" placeholder="Valid Card Number" required required title="atleast 16 numbers"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="row">
+                                          
+                                                   
+                                               <div class="col-xs-4 col-md-4">
+                                                       <div class="radio">
+                                                               <label><input type="radio" name="typecard" checked value="visa"> Visa</label>
+                                                             </div>
+                                                             
+                                               </div>
+                                               <div class="">
+                                                       <div class="radio">
+                                                               <label><input type="radio" name="typecard"  value="mastercard"> MasterCard</label>
+                                                             </div>
+                                                             
+                                               </div>
+                                               </div>
+                                           </div> 
+                                    
+                                        <div class="row">
+                                                <div class="col-xs-7 col-md-7">
+                                                    <div class="form-group">
+                                                        <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline"></span> DATE</label>
+                                                        <input type="tel" name="expiry" class="form-control" placeholder="MM / YY" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-5 col-md-5 float-xs-right">
+                                                    <div class="form-group">
+                                                        <label>CV CODE</label>
+                                                        <input type="tel" name="cvc" class="form-control" placeholder="CVC" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-xs-12" style="margin-left:4%">
+                                                        <div class="form-group">
+                                                            <label>Licence Number</label>
+                                                            <input type="text" name="liNo" class="form-control" placeholder="xxxxx1212" required/>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div class="d-flex justify-content-center">
+                                                        <input type="hidden" id="value1" name="name" value=<%=name%>>
+                                                        <input type="hidden" id="value1" name="carType" value=<%=carType%>>
+                                                        <input type="hidden" id="value1" name="carStatus" value=<%=carStatus%>>
+                                                        <input type="hidden" id="value1" name="carStatus" value=<%=brandName%>>
+                                                        <input type="hidden" id="value1" name="cost" value=<%=cost%>>
+                                                        <input type="hidden" id="value1" name="insurance" value=<%=insurance%>>
+                                                        <input type="hidden" id="value1" name="carId" value=<%=carId%>>
+                                                        <input type="hidden" id="value1" name="resId" value=<%= resId%>>
+                                                        <input type="hidden" id="value1" name="phone" value=<%=phone%>>
+                                                    
+                                                        <input type="submit" id="findbutton" class="btn  btn-block "  style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="rent Car">
+                
+                                                </div>
+                                                
+                                    
+                
+                            </form>
+                                
+                    </div>
+                          
+                </div>
+       </div>
+        
+    
+       
+                  
+            </div>
+  
+</body>
+<%- include("footer")-%>

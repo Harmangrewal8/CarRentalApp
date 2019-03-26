@@ -5,15 +5,30 @@
             <h1>Logged in as <%= user%></h1>
             <% }else{%>
                 <h1>Please login to use our service</h1>
+                <form action="login" method="POST">
+                        <input type="text" name="username" placeholder="Username" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="submit">
+                    </form>
             <%}%>
-
+            <% if(key =="notadmin" ){%>
+                <div class="alert alert-danger">
+                        <strong>Access denied!</strong> This service is only available for an Admin
+                      </div>
+                <form action="login" method="POST">
+                        <input type="text" name="username" placeholder="Username" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="submit">
+                    </form>
+                <% }else{%>
+                    <h1></h1>
+                   
+                <%}%>
+            
+            
         
         
-        <form action="login" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit">
-        </form>
+      
     </div>
 </body>
 <%- include("footer")-%>
