@@ -1,0 +1,84 @@
+<%- include("header") -%>
+
+<body>
+    <div id="carsdiv" class="container">
+        <% if(key != "success" ){%>
+        <form action="/reservations" method="POST">
+            <h2>enter Confirmation Number or Phone Number:</h2><br>
+            <input type="tel" name="input" placeholder="xxxx" required>
+            <input type="submit" value="Show reservations">
+        </form>
+
+        <% }else{%>
+        <div id="accordion">
+            <div class="card">
+                <div class="">
+                    <% for(var i=0; i<data.length; i++) { %>
+
+
+                    <div class="row">
+                        <div class="col-5"
+                            style="display: inline-block; padding: 75px; padding-bottom: 0px; border: black;">
+                            <img src="images/<%= data[i]['name'] %>.jpg" alt=".." height="250" width="400">
+                        </div>
+                        <div class="col-7"
+                            style="color: #17252A; display: inline-block; padding: 75px; padding-bottom: 0px; ">
+
+                            <h2><%= data[i]['brandName'] %> <%= data[i]['name'] %></h2>
+                            <h4 style="color: #17252A;">
+                                Type: <%= data[i]['carType'] %><br>
+                                Status: <%= data[i]['carStatus'] %> <br>
+                                Location: <%= data[i]['location'] %> <br>
+                            </h4>
+                                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                    Show details >
+                                </a>
+                                <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                    <h4 style="color:#17252A">
+                                            rental cost: $ <%= data[i]['cost'] %> <br>
+                                            insurance cost: $ <%= data[i]['costIn'] %> <br>
+                                    </h4>
+                                </div>
+                                <form name="form-form"  action="/cancelled" method="post" id="submit_form">
+                                    <input type="hidden" id="value1" name="name" value=<%=data[i]["name"]%>>
+                                    <input type="hidden" id="value1" name="carType" value=<%=data[i]["carType"]%>>
+                                    <input type="hidden" id="value1" name="brandName" value=<%=data[i]["brandName"]%>>
+                                    <input type="hidden" id="value1" name="carStatus" value=<%=data[i]["carStatus"]%>>
+                  
+                  
+                                    <input type="hidden" id="value1" name="cost" value=<%=data[i]["cost"]%>>
+                                    <input type="hidden" id="value1" name="insurance" value=<%=data[i]["costIn"]%>>
+                                    <input type="hidden" id="value1" name="carId" value=<%=data[i]["carId"]%>>
+                                    <input type="hidden" id="value1" name="resId" value=<%= data[i]["resId"] %>>
+                  
+                                    <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Cancel Reservation">
+                  
+                                </form>
+                                <form name="form-form"  action="/rentinfo" method="post" id="submit_form">
+                                    <input type="hidden" id="value1" name="name" value=<%=data[i]["name"]%>>
+                                    <input type="hidden" id="value1" name="carType" value=<%=data[i]["carType"]%>>
+                                    <input type="hidden" id="value1" name="brandName" value=<%=data[i]["brandName"]%>>
+                                    <input type="hidden" id="value1" name="carStatus" value=<%=data[i]["carStatus"]%>>
+                  
+                  
+                                    <input type="hidden" id="value1" name="cost" value=<%=data[i]["cost"]%>>
+                                    <input type="hidden" id="value1" name="insurance" value=<%=data[i]["costIn"]%>>
+                                    <input type="hidden" id="value1" name="carId" value=<%=data[i]["carId"]%>>
+                                    <input type="hidden" id="value1" name="resId" value=<%= data[i]["resId"] %>>
+                  
+                                    <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Rent Car">
+                  
+                                </form>
+                        </div>
+                    </div>
+
+
+
+                    <% } %>
+
+
+                    <%}%>
+       
+    
+</body>
+<%- include("footer")-%>

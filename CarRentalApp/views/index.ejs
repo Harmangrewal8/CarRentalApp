@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Easy CarRental</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class=" text-center">
+        <div style="background-color: #3AAFA9; padding-top: 40px; padding-bottom: 5px;">
+            <h1 id="h1">Easy Car Rentals</h1>
+            <p style="color: #FEFFFF;">random text makes car renting easier</p>
+        </div>
+        <nav class="navbar navbar-expand-sm  navbar-dark d-flex  " style="background-color: #17252A;">
+            <!-- Brand -->
+            <a class="navbar-brand mr-auto " href="#"><span style=" font-style: bold;">EasyCarRental.com</span></a>
+            <!-- Links -->
+            <div>
+                <ul class="navbar-nav ">
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Tools
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/admin">Admin</a>
+                            <a class="dropdown-item" href="/clerk">Clerk</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <img class="" style="width: 22px; height: 22px;" src="icons/accountblue.png" alt="logo">
+                            My Account
+                        </a>
+                        <div class="dropdown-menu">
+                            <h5 class="dropdown-header">General</h5>
+                            <a class="dropdown-item" href="/reservations">Reservation</a>
+                            <h5 class="dropdown-header">Account</h5>
+                            <a class="dropdown-item " href="/login">SignIn</a>
+                            <a class="dropdown-item " href="/logout">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <%if(key=="logged"){%>
+    <div class="alert alert-success alert-dismissible" style=" margin:0%;">
+        <strong>User logged in !!!</strong>
+    </div>
+    <%}else if(key=="out"){%>
+    <div class="alert alert-success alert-dismissible" style=" margin:0%;">
+        <strong>User logged out !!!</strong>
+    </div>
+    <%}else if(key=="none"){%>
+    <div class="alert alert-danger alert-dismissible" style=" margin:0%;">
+        <strong>no user logged In!!!</strong>
+    </div>
+    <%}else if(key=="rent"){%>
+        <div class="alert alert-success alert-dismissible" style=" margin:0%;">
+            <strong>Your car is ready for Pick Up!!</strong>
+        </div>
+    <%}else{%>
+
+    <%}%>
+      <div  class="parent-div d-flex align-items-center justify-content-center " style="width:100%; height:600px;" >
+        
+        
+         <div class="child-div " style=" overflow: auto; width:100%; height: auto;  background-image: linear-gradient(to bottom right, rgba(23,37,42,0.7) , rgba(0,0,0,0)); ">
+               <form action="/result" method="POST"> 
+            <div class="formdiv" style =" padding: 25px; margin-left: 3% ; width: 380px;border-radius: 10px;">
+               <div style="border-left: solid #FEFFFF ; padding-left: 20px;">
+                     <input class="textbox" type="search" name="userlocation" style="width: 250px; height: 50px;" placeholder="Type a location" required>
+                     <h4>Pickup Date & Time</h4>
+                     <input id="date1" class="textbox" type="date" name="fromDate" placeholder="" required>
+                     <input class="textbox"type="time" name="fromTime" required>
+                     <h4>Drop-off Date & Time</h4>
+                     <input id="date2" class="textbox" type="date" name="toDate" placeholder="" required>
+                        <input class="textbox" type="time" name="toTime" required>
+                         
+                         
+                     <input value="Search Cars" type="submit" id="findbutton" class="btn  btn-block " style=" width: 260px;height: 40px;; margin-top: 15px; margin-left: 5px;" name="">
+                        
+               </div>
+                     
+           </div>
+         </form>
+      </div>
+      </div>
+
+
+      <div class=" " style="margin: 0px; ">
+      <div class="row " style="height: auto;">
+         <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px; border-right: solid; border-color: #17252A; border-width: 0.5px; ">
+            
+            <img id="icons"   src="icons/promotion.png"><br>
+            <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Low Prices</h4>
+            <p style="color: #17252A;">Check out our Weekend Special Offers<br>
+               You will love it
+            </p>
+         </div>
+         <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px;  ">
+            <img id="icons" src="icons/rent.png"><br>
+            <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Easy Process</h4>
+            <p style="color: #17252A;">Check out our Weekend Special Offers<br>
+               You will love it
+            </p>
+         </div>
+         <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px;  border-left: solid; border-color: #17252A; border-width: 0.5px; ">
+            <img id="icons" src="icons/car.png"><br>
+            <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Fast Service</h4>
+            <p style="color: #17252A;">Check out our Weekend Special Offers<br>
+               You will love it
+            </p>
+         </div>
+      </div>
+      <div class=" text-center" >
+      <div style="background-color: #17252A; padding-top: 50px; padding-bottom: 50px;">
+         <h1 style="color: #3AAFA9; font-style: bold;">Popular Locations</h1>
+         <p style="color: #FEFFFF;">Find the perfect car for your desired locations</p>
+      </div>
+      <div class="container text-center " id="locationsdiv" style="padding-top: 40px;">
+         <div class="row">
+            
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/surrey.jpg"  alt="...">
+               
+               <div class="overlay">
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Surrey, BC</h4>
+               </div>
+            </div>
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/langley.jpg"  alt="...">
+               <div class="overlay">
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Langley, BC</h4>
+               </div>  
+            </div>
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/richmond.jpg"  alt="...">
+               <div class="overlay">
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Richmond, BC</h4>
+               </div>
+            </div>
+            
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/vancouver.jpg"  alt="...">
+               <div class="overlay">
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Vancouver, BC</h4>
+               </div>  
+            </div>
+         </div>
+      </div>
+      <hr>
+      <div >
+         <div class="row d-flex justify-content-around" style="margin: 0; background-color: #17252A; padding: 20px;">
+            <div class=" " id="verticalMenu">
+               <h4 style="color:#3AAFA9;">Locations</h4>
+               
+               <a class="" href="/">Surrey</a>
+               <a class="" href="/">Vancouver</a>
+               <a class="" href="/">Richmond</a>
+               <a class="" href="/">Langley</a>
+            </div>
+            <div class=" " id="verticalMenu">
+               <h4 style="color:#3AAFA9;">Reservations</h4>
+               <a class="" href="/reservations">Make Reservation</a>
+               <a class="" href="/reservations">Cancel Reservation</a>
+               
+            </div>
+            <div class=" " id="verticalMenu">
+               <h4 style="color:#3AAFA9;">Tools</h4>
+               <a class="" href="/admin">Admin</a>
+               <a class="" href="/Clerk">Clerk</a>
+               
+            </div>
+            
+            <div class=" " id="verticalMenu">
+               <h4 style="color:#3AAFA9;">My Account</h4>
+             
+               <a class="" href="/register">Register</a>
+               <a class="" href="/login">SignIn</a>
+               <a class="" href="/logout">Sign-Out</a>
+            </div>
+            <div class=" " id="verticalMenu">
+               <h4 style="color:#3AAFA9;">Cantact Us</h4>
+               <a class="" href="#">Call: +1 604xxxxxxx</a>
+               <a class="" href="#">Email: abd@abcd.com</a>
+               
+            </div>
+         </div>
+         <div class="d-flex justify-content-around" style="margin: 0; background-color: #17252A; padding: 10px;" >
+            <h4 style="color:#3AAFA9; font-size: 18px;">©EasyCarRentals.com</h4>
+         </div>
+      </div>
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+      <script src="js/index.js"></script>
+      <script >
+
+
+    </script>
+   </body>
+</html>

@@ -47,7 +47,8 @@ app.listen(3000, () => console.log('Express server is running at port no : 3000'
 
 //user registration    
 app.get('/register', (req, res) => {
-    res.render("register.ejs");
+    var key="";
+    res.render("register.ejs",{key:key});
 
 });
 
@@ -55,12 +56,14 @@ app.get('/register', (req, res) => {
 app.post('/register', (req, res) => {
     var user = req.body.reguser;
     var pass = req.body.pass1;
+    
     var phone = req.body.phone;
     if(pass == req.body.pass2){
         if (user && pass) {
             mysqlConnection.query('SELECT * FROM customer WHERE username = ? OR phone = ? ', [user, phone ], function(error, results, fields) {
                 if (results.length > 0) {
-                    res.send('User already exists for this username or phoneNo.');
+                    var key="exists";
+                    res.render('register.ejs', {key:key});
         
                 } else {
                     mysqlConnection.query('INSERT INTO customer (username, password,phone) VALUES (?,?,?) ', [user, pass, phone], function(error, results, fields){
@@ -72,13 +75,15 @@ app.post('/register', (req, res) => {
                 res.end();
             });
         } else {
-            res.send('Please enter Username and Password!');
+            var key="empty";
+                    res.render('register.ejs', {key:key});
             res.end();
         }
 
     }
 	else{
-        res.send("pass does not match");
+        var key="match";
+                    res.render('register.ejs', {key:key});
     }
 });
 //user auth
@@ -98,19 +103,33 @@ app.post('/login', (req, res) => {
 				req.session.loggedin = true;
                 req.session.username = username;
                 req.session.phone = results[0]["phone"];
-                
-				res.redirect('/');
+                key = "logged";
+				res.render('index.ejs',{key:key});
 			} else {
-				res.send('Incorrect Username and/or Password!');
+                key="incorrect";
+                res.render("login.ejs", {key:key});
 			}			
 			res.end();
 		});
 	} else {
-		res.send('Please enter Username and Password!');
-		res.end();
+		key="empty";
+                res.render("login.ejs", {key:key})
 	}
 });
 
+//logout
+app.get('/logout', (req, res) => {
+    if(req.session.loggedin==true){
+        req.session.loggedin = false;
+                req.session.username = null;
+                key = "out";
+				res.render('index.ejs',{key:key});
+    }else{
+        key = "none";
+        res.render('index.ejs',{key:key});
+    }
+
+});
 //searchg result
 
 app.get('/result', (req, res) => {
@@ -223,7 +242,7 @@ app.post('/type', (req, res) => {
         })
     }
     else{
-        mysqlConnection.query('SELECT car.carType, carId, name, brandName, carStatus, location, rates.weekly, rates.hourly, rates.daily from car inner join rates on car.carType = rates.carType WHERE ( car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? ) AND location = ?', [types[0],types[1],types[2],types[3],types[4],types[5],types[6],types[7],types[8],userLocation], (err, rows, fields) => {
+        mysqlConnection.query('SELECT car.carType, carId, name, brandName, carStatus, location, rates.weekly, rates.hourly, rates.daily, insurance.weeklyIn, insurance.hourlyIn, insurance.dailyIn from car inner join rates on car.carType = rates.carType inner join insurance on car.carType = insurance.carType WHERE ( car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? ) AND location = ?', [types[0],types[1],types[2],types[3],types[4],types[5],types[6],types[7],types[8],userLocation], (err, rows, fields) => {
             if (!err){
                 if(res == null){
                     res.send("oops");
@@ -257,7 +276,7 @@ app.post("/reserve", (req, res)=>{
     var brandName = req.body.brandName;
 
     
-    mysqlConnection.query('INSERT INTO reservation (username, carId, fromDate, toDate, phone) VALUES (?,?,?,?,?)', [req.session.username,carId,firstDate,secondDate, req.session.phone], (err, rows, fields) => {
+    mysqlConnection.query('INSERT INTO reservation (username, carId, fromDate, toDate, phone, cost, costIn) VALUES (?,?,?,?,?,?,?)', [req.session.username,carId,firstDate,secondDate, req.session.phone,cost,insurance], (err, rows, fields) => {
         if (!err){
             if(res == null){
                 res.send("oops"); 
@@ -312,7 +331,34 @@ mysqlConnection.query("DELETE FROM reservation WHERE resId = ?", [resId], (err, 
 })
                 });
     
+//search reservation
+app.get("/reservations", (req, res)=>{
+    var key= "";
+    
+     res.render("bookings.ejs", {key:key});
 
+});
+app.post("/reservations", (req, res)=>{
+
+var input= req.body.input;
+mysqlConnection.query("select * from car inner join reservation on car.carId = reservation.carId where reservation.resId=? OR reservation.phone=?", [input,input], (err, rows, fields) => {
+    if (!err){
+        if(res == null){
+            res.send("oops"); 
+        }
+        else {
+            
+            var key= "success";
+            res.render("bookings.ejs", {key:key,data:rows });
+
+        }
+    }
+       
+    else
+        console.log(err);
+})
+
+});
 //rent details
 app.get("/rentinfo", (req, res)=>{
 
@@ -363,7 +409,7 @@ var insurance = req.body.insurance;
 
     var brandName = req.body.brandName;
     console.log(userLocation);
-    mysqlConnection.query('INSERT INTO rental (resId, phone, licenseNo, cardType, cardNo, expiry, cvc  ) VALUES (?,?,?,?,?,?,?)', [resId, phone, liNo,typecard, cardNo, expiry, cvc], (err, rows, fields) => {
+    mysqlConnection.query('INSERT INTO rental (resId, phone, licenseNo, cardType, cardNo, expiry, cvc  ) VALUES (?,?,?,?,?,?,?)', [resId, req.session.phone, liNo,typecard, cardNo, expiry, cvc], (err, rows, fields) => {
         if (!err){
             if(res == null){
                 res.send("oops"); 
@@ -373,8 +419,8 @@ var insurance = req.body.insurance;
                 mysqlConnection.query("DELETE FROM reservation WHERE resId = ?", [resId], (err, rows, fields) => {
 
                 });
-                var key= "success";
-                res.render("rentinfo.ejs", {key:key,carStatus:carStatus, resId:resId,name:name,cost:cost, insurance:insurance, carType:carType, brandName:brandName, phone:phone,  weeks: weeks, dayrem: dayrem, hours: hours, carId: carId });
+                var key= "rent";
+                res.render("index.ejs", {key:key});
 
             }
         }
@@ -397,7 +443,7 @@ app.post('/admin', (req, res) => {
 });
 
   //editcars
-  app.get('/editcars', (req, res) => {
+app.get('/editcars', (req, res) => {
     
 });
  
@@ -431,26 +477,115 @@ app.post('/editcars', (req, res) => {
        res.render("login.ejs",{key:key});
    }
 });
+ //type filter
 
-//button routes
-app.get('/all', (req, res) => {
+ ///typeedit filter
+app.get('/typeedit', (req, res) => {
+});
+
+
+app.post('/typeedit', (req, res) => {
     
-    mysqlConnection.query('SELECT * FROM car ', [], (err, rows, fields) => {
+    console.log(userLocation);
+    var types = req.body.types;
+    if(types == null){
+        mysqlConnection.query('SELECT car.carType, carId, name, brandName, carStatus, location, rates.weekly, rates.hourly, rates.daily, insurance.weeklyIn, insurance.hourlyIn, insurance.dailyIn from car inner join rates on car.carType = rates.carType inner join insurance on car.carType = insurance.carType', [], (err, rows, fields) => {
+            if (!err){
+                if(res == null){
+                    res.send("oops");
+                }
+                else {
+                    res.render("editcars.ejs", { data: rows , weeks: weeks, dayrem: dayrem, hours: hours});
+                }
+            }
+               
+            else
+                console.log(err);
+        })
+    }
+    else{
+        mysqlConnection.query('SELECT car.carType, carId, name, brandName, carStatus, location, rates.weekly, rates.hourly, rates.daily, insurance.weeklyIn, insurance.hourlyIn, insurance.dailyIn from car inner join rates on car.carType = rates.carType inner join insurance on car.carType = insurance.carType WHERE ( car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? OR car.carType = ? )', [types[0],types[1],types[2],types[3],types[4],types[5],types[6],types[7],types[8]], (err, rows, fields) => {
+            if (!err){
+                if(res == null){
+                    res.send("oops");
+                }
+                else {
+                    
+                    res.render("editcars.ejs", { data: rows , weeks: weeks, dayrem: dayrem, hours: hours});
+                }
+            }
+               
+            else
+                console.log(err);
+        })
+
+    }
+    
+    
+});
+
+//update record
+app.get('/update', (req, res) => {
+    
+});
+ 
+app.post('/update', (req, res) => {
+    var name =req.body.name;
+    var type =req.body.type;
+    var status =req.body.status;
+    var brand =req.body.brand;
+    var cardId =req.body.carId;
+
+    var weekly =req.body.weekly;
+    var daily =req.body.daily;
+    var hourly =req.body.hourlyIn;
+    var weeklyIn =req.body.weeklyIn;
+    var dailyIn =req.body.dailyIn;
+    var hourlyIn =req.body.hourlyIn;
+
+   
+    
+    mysqlConnection.query("UPDATE car inner join rates on car.carType = rates.carType inner join insurance on car.carType = insurance.carType SET car.carStatus = ?, rates.weekly = ?, rates.daily = ?,rates.hourly = ?,insurance.weeklyIn = ?,insurance.dailyIn = ?,insurance.hourlyIn = ? WHERE carId=?", [status,weekly,daily,hourly,weeklyIn,dailyIn,hourlyIn,cardId], (err, rows, fields) => {
         if (!err){
             if(res == null){
                 res.send("oops");
             }
             else {
-                 res.render("cars", { data: rows });
+                
+                mysqlConnection.query('SELECT car.carType,carId, name, brandName, carStatus, location, rates.weekly, rates.hourly, rates.daily, insurance.weeklyIn, insurance.hourlyIn, insurance.dailyIn from car inner join rates on car.carType = rates.carType inner join insurance on car.carType = insurance.carType ', [], (err, rows, fields) => {
+                    if (!err){
+                        if(rows==null){
+                            res.send("oops");
+                        }
+                        else {
+                             res.render("editcars.ejs", { data: rows , weeks: weeks, dayrem: dayrem, hours: hours});
+                        }
+                    }
+                       
+                    else
+                        console.log(err);
+                })
             }
         }
            
         else
             console.log(err);
     })
-    
+
+
+        
 });
 
-app.post('/all', (req, res) => {
-  
+//update record
+app.get('/clerk', (req, res) => {
+    res.render("clerk.ejs");
 });
+ 
+app.post('/calculate', (req, res) => {
+  res.send("total cost");
+    
+        
+});
+
+
+//button routes

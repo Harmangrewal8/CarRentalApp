@@ -8,7 +8,9 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
       <link rel="stylesheet" href="style.css">
    </head>
+   
    <body>
+         
       <div class=" text-center" >
          <div style="background-color: #3AAFA9; padding-top: 40px; padding-bottom: 5px;">
             <h1 id="h1" >Easy Car Rentals</h1>
@@ -20,29 +22,16 @@
             <!-- Links -->
             <div>
                <ul class="navbar-nav ">
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                     Locations
-                     </a>
-                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">All Locations</a>
-                        <a class="dropdown-item" href="#">Surrey</a>
-                        <a class="dropdown-item" href="#">Vancouver</a>
-                        <a class="dropdown-item" href="#">Delta</a>
-                        <a class="dropdown-item" href="#">Langley</a>
-                     </div>
-                  </li>
+                  
                   <!-- Dropdown -->
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                     Vehicles
+                     Tools
                      </a>
                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">All Vehicles</a>
-                        <a class="dropdown-item" href="#">Cars</a>
-                        <a class="dropdown-item" href="#">Trucks</a>
-                        <a class="dropdown-item" href="#">SUVs</a>
-                        <a class="dropdown-item" href="#">Vans</a>
+                        <a class="dropdown-item" href="/admin">Admin</a>
+                        <a class="dropdown-item" href="/clerk">Clerk</a>
+                        
                      </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -52,9 +41,10 @@
                      </a>
                      <div class="dropdown-menu">
                         <h5 class="dropdown-header">General</h5>
-                        <a class="dropdown-item" href="#">Bookings</a>
+                        <a class="dropdown-item" href="/reserve">Reservation</a>
                         <h5 class="dropdown-header">Account</h5>
-                        <a class="dropdown-item " href="#">SignIn</a>
+                        <a class="dropdown-item " href="/login">SignIn</a>
+                        <a class="dropdown-item " href="/logout">Sign Out</a>
                      </div>
                   </li>
                </ul>

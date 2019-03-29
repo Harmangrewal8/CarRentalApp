@@ -4,7 +4,7 @@
         
     <div id="carsdiv" class= "container">
         <div >
-            <form action="/type" method="POST">
+            <form action="/typeedit" method="POST">
                 
                          <div class="textbox d-flex justify-content-around" style="display: inline-block; padding-right: 21px; color: #17252A"> 
                             
@@ -36,45 +36,36 @@
                                       <img src="images/<%= data[i]['name'] %>.jpg" alt=".." height="250" width="400" >
                                   </div>
                                   <div  class="col-7" style="color: #17252A; display: inline-block; padding: 75px; padding-bottom: 0px; ">
-                                     
-                                     <h2><%= data[i]['brandName'] %> <%= data[i]['name'] %></h2>
-                                     <h4 style="color: #17252A;">     
-                                          Type:  <%= data[i]['carType'] %><br>
-                                           Status: <%= data[i]['carStatus'] %> <br>
-                                           Location: <%= data[i]['location'] %> <br>
-                                           <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                                Show details >
-                                              </a>
-                                              <div id="collapseOne" class="collapse" data-parent="#accordion">
-                                                    
-                                                     <h4>
-                                                            hourly: <%= data[i]['hourly'] %><br>
-                                                            daily: <%= data[i]['daily'] %><br>
-                                                            weekly: <%= data[i]['weekly'] %><br>
-                                                            cost: <%= (data[i]['weekly'])*weeks+ (data[i]['daily'])*dayrem+(data[i]['hourly'])*hours %><br>
-                                                            insurance: <%=(data[i]['weeklyIn'])*weeks+ (data[i]['dailyIn'])*dayrem+(data[i]['hourlyIn'])*hours %>
-                                                     </h4>
-                                                    
-                                                  </div>
-                                      
-                                      
-                                          
-                                           <form name="form-form"  action="/reserve" method="post" id="submit_form">
-                                              <input type="hidden" id="value1" name="name" value=<%= data[i]['name'] %>>
-                                              <input type="hidden" id="value1" name="carType" value=<%= data[i]['carType'] %>>
-                                              <input type="hidden" id="value1" name="carStatus" value=<%= data[i]['carStatus'] %>>
-                                              <input type="hidden" id="value1" name="carStatus" value=<%= data[i]['brandName'] %>>
-          
-          
-                                              <input type="hidden" id="value1" name="cost" value=<%= (data[i]['weekly'])*weeks+ (data[i]['daily'])*dayrem+(data[i]['hourly'])*hours %>>
-                                              <input type="hidden" id="value1" name="insurance" value=<%= (data[i]['weeklyIn'])*weeks+ (data[i]['dailyIn'])*dayrem+(data[i]['hourlyIn'])*hours %>>
-                                              <input type="hidden" id="value1" name="carId" value=<%= (data[i]['carId']) %>>
-                                              <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 175px; margin-top: 15px; margin-left: 5px;" name="" value="Reserve Car">
-          
-                                          </form>
-                                          
-                     
-                                     </h4>
+                                    <form action="/update" method="POST">
+                                      <h2>
+                                        <%= data[i]['brandName'] %> <%= data[i]['name'] %>:
+                                        
+                                      </h2>
+                                      <input  id="value1" type="hidden" name="name" value=<%= data[i]['name'] %>><br>
+                                      <input  id="value1" type="hidden" name="brand" value=<%= data[i]['brandName'] %>><br>
+                                      <input  id="value1" type="hidden" name="type" value=<%= data[i]['carType'] %>><br>
+                                    <label>Status</label><input  id="value1" name="status" value=<%= data[i]['carStatus'] %>><br>
+                                    <input type="hidden" id="value1" name="carId" value=<%= (data[i]['carId']) %>><br>
+                                    <h4>Rental Rates:</h4><br>
+                                    <label>Weekly:</label>
+                                    <input  id="value1" name="weekly" value=<%= (data[i]['weekly']) %>><br>
+                                    <label>daily:</label>
+                                    <input  id="value1" name="daily" value=<%=(data[i]['daily']) %>><br>
+                                    <label>hourly:</label>
+                                    <input  id="value1" name="hourly" value=<%= (data[i]['hourly']) %>><br>
+
+                                    <h4>Insurance Rates:</h4><br>
+                                    <label>Weekly:</label>
+                                    <input  id="value1" name="weeklyIn" value=<%= (data[i]['weeklyIn']) %>><br>
+                                    <label>daily:</label>
+                                    <input  id="value1" name="dailyIn" value=<%=(data[i]['dailyIn']) %>><br>
+                                    <label>hourly:</label>
+                                    <input  id="value1" name="hourlyIn" value=<%= (data[i]['hourlyIn']) %>><br>
+                                    <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 150px;margin-left: 20px;" name="" value="Update Data">
+                                    </form>
+
+
+                                   
                                     
           
           
@@ -82,7 +73,7 @@
               </div> 
          
    
-
+<hr>
   <% } %>
 </div>
         

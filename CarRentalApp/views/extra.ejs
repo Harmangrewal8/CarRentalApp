@@ -3,7 +3,7 @@ app.post('/result/filter', (req, res) => {
     var userLocation = req.body.userlocation;
     var types = req.body.types;
     
-    mysqlConnection.query('SELECT * FROM car WHERE (carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? ) AND location = ?', [types[0],types[1],types[2],types[3],types[4],types[5],types[6],types[7],types[8],userLocation], (err, rows, fields) => {
+    mysqlConnection.query('SELECT * FROM car; WHERE (carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? OR carType = ? ) AND location = ?', [types[0],types[1],types[2],types[3],types[4],types[5],types[6],types[7],types[8],userLocation], (err, rows, fields) => {
         if (!err){
             if(res == null){
                 res.send("oops");
@@ -36,3 +36,27 @@ app.post('/result/filter', (req, res) => {
                     <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 250px;margin-left: 20px;" name="">
              </div>
 </form>
+
+
+
+////
+if(req.session.loggedin == false){
+    mysqlConnection.query('SELECT * FROM car WHERE location = ?', [userLocation], (err, rows, fields) => {
+        if (!err){
+            if(res == null){
+                res.send("oops");
+            }
+            else {
+                 res.render("cars", { data: rows });
+            }
+        }
+           
+        else
+            console.log(err);
+    })
+
+}
+  else{
+      res.send("Please Log in or Sign Up");
+      
+  }  

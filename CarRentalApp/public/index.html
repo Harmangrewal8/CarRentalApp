@@ -24,29 +24,16 @@
             <!-- Links -->
             <div>
                <ul class="navbar-nav ">
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                     Locations
-                     </a>
-                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">All Locations</a>
-                        <a class="dropdown-item" href="#">Surrey</a>
-                        <a class="dropdown-item" href="#">Vancouver</a>
-                        <a class="dropdown-item" href="#">Delta</a>
-                        <a class="dropdown-item" href="#">Langley</a>
-                     </div>
-                  </li>
+                  
                   <!-- Dropdown -->
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                     Vehicles
+                     Tools
                      </a>
                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/all">All Vehicles</a>
-                        <a class="dropdown-item" href="#">Cars</a>
-                        <a class="dropdown-item" href="#">Trucks</a>
-                        <a class="dropdown-item" href="#">SUVs</a>
-                        <a class="dropdown-item" href="#">Vans</a>
+                        <a class="dropdown-item" href="/admin">Admin</a>
+                        <a class="dropdown-item" href="/clerk">Clerk</a>
+                        
                      </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -56,9 +43,10 @@
                      </a>
                      <div class="dropdown-menu">
                         <h5 class="dropdown-header">General</h5>
-                        <a class="dropdown-item" href="#">Bookings</a>
+                        <a class="dropdown-item" href="/reservations">Reservation</a>
                         <h5 class="dropdown-header">Account</h5>
-                        <a class="dropdown-item " href="#">SignIn</a>
+                        <a class="dropdown-item " href="/login">SignIn</a>
+                        <a class="dropdown-item " href="/logout">Sign Out</a>
                      </div>
                   </li>
                </ul>
@@ -98,7 +86,7 @@
          <div class="col-sm-4 text-center"  style="background-color: #FEFFFF;padding: 40px; border-right: solid; border-color: #17252A; border-width: 0.5px; ">
             
             <img id="icons"   src="icons/promotion.png"><br>
-            <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Weekend Deals</h4>
+            <h4 style="color: #2B7A78; font-size: 25px; margin: 10px; font-weight: 600;">Low Prices</h4>
             <p style="color: #17252A;">Check out our Weekend Special Offers<br>
                You will love it
             </p>
@@ -125,41 +113,32 @@
       </div>
       <div class="container text-center " id="locationsdiv" style="padding-top: 40px;">
          <div class="row">
-            <div class=" locations col-md-4 col-sm-6 ">
-               <img  class="img-fluid  " src="images/tour-1.jpg"  alt="...">
+            
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/surrey.jpg"  alt="...">
+               
                <div class="overlay">
-                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 5px; ">Vancouver, BC</h4>
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Surrey, BC</h4>
                </div>
             </div>
-            <div class=" locations col-md-4 col-sm-6 ">
-               <img  class="img-fluid  " src="images/tour-2.jpg"  alt="...">
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/langley.jpg"  alt="...">
                <div class="overlay">
-                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 5px; ">Vancouver, BC</h4>
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Langley, BC</h4>
+               </div>  
+            </div>
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/richmond.jpg"  alt="...">
+               <div class="overlay">
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Richmond, BC</h4>
                </div>
             </div>
-            <div class=" locations col-md-4 col-sm-6 ">
-               <img  class="img-fluid  " src="images/tour-3.jpg"  alt="...">
+            
+            <div class=" locations col-md-6 col-sm-6 ">
+               <img  class="img-fluid  " src="images/vancouver.jpg"  alt="...">
                <div class="overlay">
-                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 5px; ">Vancouver, BC</h4>
-               </div>
-            </div>
-            <div class=" locations col-md-4 col-sm-6 ">
-               <img  class="img-fluid  " src="images/tour-1.jpg"  alt="...">
-               <div class="overlay">
-                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 5px; ">Vancouver, BC</h4>
-               </div>
-            </div>
-            <div class=" locations col-md-4 col-sm-6 ">
-               <img  class="img-fluid  " src="images/tour-2.jpg"  alt="...">
-               <div class="overlay">
-                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 5px; ">Vancouver, BC</h4>
-               </div>
-            </div>
-            <div class=" locations col-md-4 col-sm-6 ">
-               <img  class="img-fluid  " src="images/tour-3.jpg"  alt="...">
-               <div class="overlay">
-                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 5px; ">Vancouver, BC</h4>
-               </div>
+                  <h4 style="font-size: 22px; color: #3AAFA9; margin-bottom: 10px; ">Vancouver, BC</h4>
+               </div>  
             </div>
          </div>
       </div>
@@ -168,45 +147,37 @@
          <div class="row d-flex justify-content-around" style="margin: 0; background-color: #17252A; padding: 20px;">
             <div class=" " id="verticalMenu">
                <h4 style="color:#3AAFA9;">Locations</h4>
-               <a class="" href="#">All Locations</a>
-               <a class="" href="#">Surrey</a>
-               <a class="" href="#">Vancouver</a>
-               <a class="" href="#">Delta</a>
-               <a class="" href="#">Langley</a>
+               
+               <a class="" href="/">Surrey</a>
+               <a class="" href="/">Vancouver</a>
+               <a class="" href="/">Richmond</a>
+               <a class="" href="/">Langley</a>
             </div>
             <div class=" " id="verticalMenu">
-               <h4 style="color:#3AAFA9;">Vehicles</h4>
-               <a class="" href="#">All Vehicles</a>
-               <a class="" href="#">Cars</a>
-               <a class="" href="#">Trucks</a>
-               <a class="" href="#">SUVs</a>
-               <a class="" href="#">Vans</a>
+               <h4 style="color:#3AAFA9;">Reservations</h4>
+               <a class="" href="/reservations">Make Reservation</a>
+               <a class="" href="/reservations">Cancel Reservation</a>
+               
             </div>
-            <div class=" " id="verticalMenu" ">
-               <h4 style="color:#3AAFA9;">Car Companies</h4>
-               <div style="display: inline-block;">
-                  <a class="" href="#">Ace </a>
-                  <a class="" href="#">Advantage</a>
-                  <a class="" href="#">Alamo</a>
-                  <a class="" href="#">Budget</a>
-                  <a class="" href="#">Dollar</a>
-               </div>
-               <div style="display: inline-block;">
-                  <a class="" href="#">Enterprise </a>
-                  <a class="" href="#">Hertz</a>
-                  <a class="" href="#">Thrifty</a>
-               </div>
+            <div class=" " id="verticalMenu">
+               <h4 style="color:#3AAFA9;">Tools</h4>
+               <a class="" href="/admin">Admin</a>
+               <a class="" href="/Clerk">Clerk</a>
+               
             </div>
+            
             <div class=" " id="verticalMenu">
                <h4 style="color:#3AAFA9;">My Account</h4>
-               <a class="" href="#">Bookings</a>
-               <a class="" href="#">SignIn</a>
+             
+               <a class="" href="/register">Register</a>
+               <a class="" href="/login">SignIn</a>
+               <a class="" href="/logout">Sign-Out</a>
             </div>
             <div class=" " id="verticalMenu">
                <h4 style="color:#3AAFA9;">Cantact Us</h4>
                <a class="" href="#">Call: +1 604xxxxxxx</a>
                <a class="" href="#">Email: abd@abcd.com</a>
-               <a class="" href="#">Send Feedback</a>
+               
             </div>
          </div>
          <div class="d-flex justify-content-around" style="margin: 0; background-color: #17252A; padding: 10px;" >
