@@ -12,6 +12,15 @@
                         <input type="password" name="password" placeholder="Password" required>
                         <input type="submit"value="Login">
                     </form>
+                    <%}else if(key=="notclerk"){%>
+                        <div class="alert alert-danger">
+                            <strong>Access denied!</strong> This service is only available for a Clerk
+                          </div>
+                    <form action="login" method="POST">
+                            <input type="email" name="username" placeholder="email" required>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <input type="submit"value="Login">
+                        </form>
                 <% }else{%>
                     <form action="login" method="POST">
                         <input type="email" name="username" placeholder="email" required>
@@ -30,6 +39,7 @@
                         <input type="password" name="password" placeholder="Password" required>
                         <input type="submit" value="Login">
                     </form>
+                    <a class="nav-link" href="#">Register for new Account</a>
                 <%}else if(key=="empty"){%>
                     <div class="alert alert-danger">
                         <strong>please enter something!!</strong> 
@@ -39,21 +49,18 @@
                         <input type="password" name="password" placeholder="Password" required>
                         <input type="submit" value="Login">
                     </form>
+                    <a class="nav-link" href="#">Register for new Account</a>
                 <%}else{%>
                     <form action="login" method="POST">
                         <input type="email" name="username" placeholder="email" required>
                         <input type="password" name="password" placeholder="Password" required>
                         <input type="submit" value="Login">
                     </form>
+                    <a style="margin-left:16%;" class="nav-link" href="/register">Register New Account !!</a>
                 <%}%>
                
             <%}%>
-            
-            
-            
-        
-        
-      
+               
     </div>
 </body>
 <%- include("footer")-%>

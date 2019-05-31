@@ -148,9 +148,23 @@ h4{
 }
 .login-form h1 {
 	text-align: center;
-	color: #4d4d4d;
+	color: #17252A;
 	font-size: 24px;
 	padding: 20px 0 20px 0;
+}
+.login-form input[type="date"]{
+	width: 63%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
+}
+.login-form input[type="time"]{
+	width: 35%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
 }
 .login-form input[type="password"],
 .login-form input[type="text"],
@@ -165,7 +179,7 @@ h4{
 .login-form input[type="submit"] {
 	width: 100%;
 	padding: 15px;
-	background-color: #535b63;
+	background-color: #17252A;
 	border: 0;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -173,3 +187,19 @@ h4{
 	color: #ffffff;
 }
  
+
+@keyframes fade-in-right {
+	from {
+	  opacity: 0;
+	  transform: translateX(-15px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+
+  .agent-2 {
+	opacity: 0;
+animation: fade-in-right ease 1s forwards;
+  }

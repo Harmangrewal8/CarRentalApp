@@ -1,0 +1,57 @@
+<%- include("header") -%>
+
+<body>
+        
+    <div id="carsdiv" class= "container">
+        
+
+<div id="accordion">
+        <div class="card">
+          <div class="">
+                <% for(var i=0; i<data.length; i++) { %>
+                       
+                            
+                        <div class="row">
+                              <div class="col-12" style="display: inline-block; padding: 75px; padding-bottom: 0px; border: black;">
+                                  </div>
+                                  <div  class="col-7" style="color: #17252A; display: inline-block; padding: 75px; padding-bottom: 0px; ">
+                                    <form action="/updateusers" method="POST">
+                                    
+                                    <h4>User Email:</h4><br>
+                                    <input  id="value1" type="hidden" name="initial" value=<%= (data[i]['username']) %>>
+                                    <input  id="value1" name="username" value=<%= (data[i]['username']) %>><br>
+                                    
+                                    <h4>User Phone Number:</h4><br>
+                                    <input  id="value1" name="phone" value=<%=(data[i]['phone']) %>><br>
+                                    
+                                    <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 150px;margin-left: 20px;" name="" value="Update Data">
+                                    </form>
+                                    <form action="/deleteuser" method="POST">
+                                    
+                                      
+                                      <input  id="value1" type="hidden" name="name" value=<%= (data[i]['username']) %>>
+                                      
+                                     
+                                      <input  id="value1" type="hidden" name="phone" value=<%=(data[i]['phone']) %>><br>
+                                      
+                                      <input type="submit" id="findbutton" class="btn  btn-block " style=" width: 150px;margin-left: 20px;" name="" value="Delete User">
+                                      </form>
+
+
+                                   
+                                    
+          
+          
+                        </div>   
+              </div> 
+         
+   
+<hr>
+  <% } %>
+</div>
+        
+</div>
+
+</div>           
+</body>
+<%- include("footer")-%>
